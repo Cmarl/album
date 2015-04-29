@@ -1,0 +1,15 @@
+.row
+  .col-xs-6.col-xs-offset-3
+    h1 New Album
+    form
+      .form-group
+        label(for='albumName') Name
+        input.form-control#albumName(type='text', name='name', ng-model='album.name')
+      .form-group
+        label(for='description') Description
+        input.form-control#description(type='text', name='about', ng-model='album.description')
+      .form-group
+        label(for='albumDate') Date
+        input.form-control#albumDate(type='date', name='date', ng-model='album.date')
+      .form-group
+        button.btn.form-control.btn-success(ng-click='newAlbum(album.name)') Create Album

@@ -1,0 +1,21 @@
+.row
+  .col-xs-6.col-xs-offset-3
+    h1 {{name}}
+    form
+      .form-group
+        label(for='photoUrl') Photo by URL
+        input.form-control#photoUrl(type='text', name='url', ng-model='url')
+      .form-group
+        button.btn.form-control.btn-success(ng-click='savePhoto("url",url,name)') Save Photo
+      h3.text-center - OR -
+      .form-group
+        label(for='photoUpload') Photo Upload
+        input(type='file')
+        br
+        img(src='', height='200', alt='Image preview…')
+      .form-group
+        button.btn.form-control.btn-success(ng-click='savePhoto("upload")') Upload Photo
+table.table
+  tbody
+    tr(ng-repeat='image in images')
+      td: img(ng-src='{{image.$value}}')
