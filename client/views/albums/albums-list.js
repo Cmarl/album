@@ -1,7 +1,12 @@
 'use strict';
 
 angular.module('album')
-.controller('AlbumsListCtrl', function($scope,Album){
+.controller('AlbumsListCtrl', function($scope,$state,Album,Photo){
+
+  $scope.getPrimary = function(index){
+    var primary = Photo.getPrimary(index);
+    console.log(primary);
+  };
 
   $scope.afUser.$loaded(function(){
     $scope.names = $scope.afUser.names ? $scope.afUser.names.split(',') : [];
@@ -12,4 +17,5 @@ angular.module('album')
       $scope.albums = $scope.afUser.albums;
     });
   };
+
 });
