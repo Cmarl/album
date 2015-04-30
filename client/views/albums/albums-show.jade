@@ -19,3 +19,5 @@ table.table
   tbody
     tr(ng-repeat='image in images')
       td: img(ng-src='{{image.$value}}')
+      td: button.btn.btn-danger.btn-xl(ng-click='deletePhoto(image,name)') Delete
+      td: button.btn.btn-info.btn-xl(ng-click='setPrimary(image)') Set Primary

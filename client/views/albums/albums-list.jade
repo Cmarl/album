@@ -5,4 +5,4 @@
       tbody
         tr(ng-repeat='name in names')
           td: h3: a(ui-sref='albums.show({name:name})') {{name}}
-          td: button.btn.btn-xs.btn-danger.pull-right(ng-click='remove(album,$index)') Delete
+          td: button.btn.btn-xs.btn-danger.pull-right(ng-click='remove(name,$index)') Delete
