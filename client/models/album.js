@@ -3,6 +3,12 @@
 angular.module('album')
 .factory('Album', function($rootScope, $firebaseArray, $firebaseObject){
 
+  Album.bindPrimary = function(){
+    var fbPrimes = $rootScope.fbUser.child('primaryPictures');
+    var primaryImgScope = $firebaseObject(fbPrimes);
+    primaryImgScope.$bindTo($rootScope, 'primary');
+  };
+
   function Album(){
   }
 
