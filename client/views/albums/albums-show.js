@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('album')
-.controller('AlbumsShowCtrl', function($scope,$state,$window,Album){
+.controller('AlbumsShowCtrl', function($scope,$state,$window,Album,Photo){
   $scope.name = $state.params.name;
   $scope.images = Album.getPhotos($scope.name);
 
@@ -23,6 +23,7 @@ angular.module('album')
       preview.src = reader.result;
       Album.addPhoto(reader.result, $scope.name);
     };
+
     if (file) {
       reader.readAsDataURL(file);
     } else {
@@ -30,8 +31,8 @@ angular.module('album')
     }
   }
 
-  $scope.setPrimary = function(image){
-
+  $scope.setPrimary = function(image,albumName){
+    Photo.setPrimary(image, albumName);
   };
 
   $scope.deletePhoto = function(image,name){
